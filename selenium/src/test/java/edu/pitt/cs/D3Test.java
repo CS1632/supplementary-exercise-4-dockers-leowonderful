@@ -40,7 +40,9 @@ public class D3Test {
 
   @Before
   public void setUp() {
-    driver = new FirefoxDriver(); //Firefox browser version >= 105 is installed and launched.
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("--headless");
+    driver = new ChromeDriver(options);
     js = (JavascriptExecutor) driver;
     driver.get("http://localhost:8080"); //The URL https://cs1632.appspot.com/ is open on the web browser.
     js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=false\";"); //Set cookies
